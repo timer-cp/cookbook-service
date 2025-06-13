@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开通会员服务</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            animation: slideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: sparkle 15s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .crown-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .content {
+            padding: 35px 30px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 25px;
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .section:hover::before {
+            left: 100%;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 5px solid #00b894;
+        }
+
+        .membership-types {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-left: 5px solid #e17055;
+        }
+
+        .auto-renewal {
+            background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+            border-left: 5px solid #6c5ce7;
+        }
+
+        .refund-policy {
+            background: linear-gradient(135deg, #fad0c4 0%, #ffd1ff 100%);
+            border-left: 5px solid #fd79a8;
+        }
+
+        .usage-rules {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 5px solid #00cec9;
+        }
+
+        .agreement-changes {
+            background: linear-gradient(135deg, #c2e9fb 0%, #a1c4fd 100%);
+            border-left: 5px solid #74b9ff;
+        }
+
+        .other-info {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-left: 5px solid #e84393;
+        }
+
+        .section h2 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            border-radius: 50%;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-right: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(8px);
+            background: white;
+        }
+
+        .benefit-icon {
+            font-size: 1.8rem;
+            margin-right: 15px;
+            min-width: 40px;
+        }
+
+        .benefit-text {
+            flex: 1;
+        }
+
+        .benefit-label {
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 3px;
+        }
+
+        .benefit-desc {
+            font-size: 0.85rem;
+            color: #636e72;
+        }
+
+        .membership-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .membership-option {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            color: #2d3436;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .membership-option:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        .highlight-text {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+            font-weight: 500;
+            color: #2d3436;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            box-shadow: 0 8px 20px rgba(255, 118, 117, 0.3);
+        }
+
+        .warning-box::before {
+            content: "⚠️";
+            font-size: 1.3rem;
+            margin-right: 10px;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            box-shadow: 0 8px 20px rgba(116, 185, 255, 0.3);
+        }
+
+        .info-box::before {
+            content: "💡";
+            font-size: 1.3rem;
+            margin-right: 10px;
+        }
+
+        .action-buttons {
+            padding: 30px;
+            background: #f8f9fa;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #e9ecef;
+            color: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background: #dee2e6;
+            transform: translateY(-2px);
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-element:nth-child(2) { top: 50%; left: 80%; animation-delay: 2s; }
+        .floating-element:nth-child(3) { top: 80%; left: 20%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 20px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .content {
+                padding: 25px 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .membership-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                padding: 25px 20px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element">🍳</div>
+        <div class="floating-element">👨‍🍳</div>
+        <div class="floating-element">🥘</div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="crown-icon">👑</div>
+                <h1>开通会员服务</h1>
+                <p>欢迎您开通菜谱 App 会员服务！</p>
+                <p style="font-size: 0.95rem; opacity: 0.9;">请您在确认开通前仔细阅读以下内容</p>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section benefits">
+                <h2>
+                    <span class="section-number">1</span>
+                    会员权益
+                </h2>
+                <p style="margin-bottom: 20px;">开通会员后，您可享受以下权益：</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎬</div>
+                        <div class="benefit-text">
+                            <div class="benefit-label">视频菜谱教程</div>
+                            <div class="benefit-desc">无限制观看（非会员不可观看）</div>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📝</div>
+                        <div class="benefit-text">
+                            <div class="benefit-label">菜谱计划</div>
+                            <div class="benefit-desc">无限制使用</div>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">❤️</div>
+                        <div class="benefit-text">
+                            <div class="benefit-label">菜谱收藏</div>
+                            <div class="benefit-desc">无限制收藏</div>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🛒</div>
+                        <div class="benefit-text">
+                            <div class="benefit-label">菜篮子</div>
+                            <div class="benefit-desc">无限制使用</div>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🚫</div>
+                        <div class="benefit-text">
+                            <div class="benefit-label">免广告服务</div>
+                            <div class="benefit-desc">纯净使用体验</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section membership-types">
+                <h2>
+                    <span class="section-number">2</span>
+                    会员类型
+                </h2>
+                <p style="margin-bottom: 15px;">会员服务提供多种类型供您选择，具体价格以购买页面为准。</p>
+                
+                <div class="membership-options">
+                    <div class="membership-option">📅 月卡</div>
+                    <div class="membership-option">🔄 连续月卡</div>
+                    <div class="membership-option">📆 年卡</div>
+                    <div class="membership-option">🔁 连续年卡</div>
+                </div>
+            </div>
+
+            <div class="section auto-renewal">
+                <h2>
+                    <span class="section-number">3</span>
+                    自动续费（连续会员）
+                </h2>
+                <div class="info-box">
+                    若您选择连续会员服务，表示您已授权平台在当前会员到期前，通过您绑定的支付账户自动扣除下一周期会员费用，自动延续会员权益。
+                </div>
+                <div class="highlight-text">
+                    💡 您可随时在 App 内取消自动续费，取消后不会影响当前周期的会员权益使用。
+                </div>
+            </div>
+
+            <div class="section refund-policy">
+                <h2>
+                    <span class="section-number">4</span>
+                    退款规则
+                </h2>
+                <div class="warning-box">
+                    会员服务一经开通，不支持中途退款（法律法规另有规定或平台公示退款政策的除外）。
+                </div>
+                <div class="highlight-text">
+                    连续会员用户可在当前周期结束前取消自动续费，取消后不再自动扣费。
+                </div>
+            </div>
+
+            <div class="section usage-rules">
+                <h2>
+                    <span class="section-number">5</span>
+                    会员使用规范
+                </h2>
+                <div class="highlight-text">
+                    <strong>🔒 个人专用：</strong>会员权益仅限会员本人使用，禁止出借、出租、转让、共享账号。
+                </div>
+                <div class="highlight-text">
+                    <strong>⚖️ 合法使用：</strong>用户应合法使用会员服务，不得用于违法、违规、侵权用途。
+                </div>
+            </div>
+
+            <div class="section agreement-changes">
+                <h2>
+                    <span class="section-number">6</span>
+                    协议变更
+                </h2>
+                <div class="highlight-text">
+                    平台有权根据业务需要调整会员权益、价格及本协议内容。变更信息将通过 App 公告等方式通知您。
+                </div>
+                <div class="info-box">
+                    如您不同意变更内容，可选择停止使用会员服务。
+                </div>
+            </div>
+
+            <div class="section other-info">
+                <h2>
+                    <span class="section-number">7</span>
+                    其他
+                </h2>
+                <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px;">
+                    本简版协议为会员服务的重要提示内容，详细条款请见《会员服务协议》全文（可在 App 内查看）。
+                </div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-secondary" onclick="showFullAgreement()">
+                📋 查看完整协议
+            </button>
+            <button class="btn btn-primary" onclick="confirmPurchase()">
+                ✨ 确认开通会员
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // 添加滚动动画效果
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.section').forEach((section, index) => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(section);
+        });
+
+        // 按钮点击事件
+        function showFullAgreement() {
+            alert('这里将跳转到完整的会员服务协议页面');
+        }
+
+        function confirmPurchase() {
+            if (confirm('您确认已阅读并同意会员服务条款，准备开通会员服务吗？')) {
+                alert('正在跳转到支付页面...');
+            }
+        }
+
+        // 添加粒子效果
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: fixed;
+                width: 4px;
+                height: 4px;
+                background: rgba(255, 255, 255, 0.6);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: -1;
+                left: ${Math.random() * 100}vw;
+                top: 100vh;
+                animation: particleFloat ${3 + Math.random() * 4}s linear forwards;
+            `;
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 7000);
+        }
+
+        // 添加粒子CSS动画
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes particleFloat {
+                to {
+                    transform: translateY(-100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // 定期创建粒子
+        setInterval(createParticle, 500);
+    </script>
+</body>
+</html>
