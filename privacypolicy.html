@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中华菜谱 App 隐私政策</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .update-info {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+            padding: 20px 30px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #e17055;
+            box-shadow: 0 5px 15px rgba(253, 203, 110, 0.3);
+        }
+
+        .section {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #2d3748;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ff6b6b;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .section h3 {
+            color: #4a5568;
+            font-size: 1.1em;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .section ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .section li::marker {
+            color: #ff6b6b;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #d299c2, #fef9d7);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            border: 2px solid #ff6b6b;
+        }
+
+        .contact-info h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 2px;
+            font-weight: 500;
+        }
+
+        .footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍜 中华菜谱 App</h1>
+            <p class="subtitle">隐私政策</p>
+        </div>
+
+        <div class="update-info">
+            <strong>更新日期：2025年6月13日</strong> | <strong>生效日期：2025年6月13日</strong>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <p><strong>欢迎您使用中华菜谱 App</strong>（以下简称"本应用"或"我们"）。我们非常重视您的隐私和个人信息保护。本隐私政策将帮助您了解我们如何收集、使用、共享和保护您的信息，以及您对相关信息的权利。</p>
+                <p><strong>⚠️ 重要提醒：</strong>请您在使用本应用前仔细阅读本政策，若您不同意本政策任何内容，请停止使用本应用。</p>
+            </div>
+
+            <div class="section">
+                <h2>1. 我们收集的信息</h2>
+                <p>在您使用本应用过程中，我们会根据《中华人民共和国网络安全法》等相关法律法规，遵循<span class="badge">合法</span><span class="badge">正当</span><span class="badge">必要</span>的原则，收集以下信息：</p>
+                
+                <h3>1.1 账户信息</h3>
+                <ul>
+                    <li>当您注册账户或通过第三方登录（目前支持 Google 和 X 登录）时，我们会收集您授权提供的公开信息，如昵称、头像、邮箱地址、第三方账号唯一标识符。</li>
+                </ul>
+
+                <h3>1.2 使用信息</h3>
+                <ul>
+                    <li>我们会收集您在使用本应用过程中产生的操作日志、浏览记录、收藏记录、菜谱搜索记录、视频观看记录、会员服务使用情况等信息。</li>
+                </ul>
+
+                <h3>1.3 设备信息</h3>
+                <ul>
+                    <li>我们会收集您的设备信息，包括设备型号、操作系统版本、设备标识符（如 Android ID、IDFA）、IP 地址、网络类型，以保障服务的正常运行与安全。</li>
+                </ul>
+
+                <h3>1.4 支付信息</h3>
+                <ul>
+                    <li>若您购买会员服务（包括月付、连续月付、年付、连续年付），我们会通过支付渠道（Google Play、Apple Pay、PayPal）获取订单状态信息，如订单号、支付金额、支付状态等，但不会收集您的支付账号或银行卡信息。</li>
+                </ul>
+
+                <h3>1.5 广告相关信息</h3>
+                <ul>
+                    <li>非会员用户使用本应用过程中，可能会展示第三方广告，广告合作方可能会收集设备信息、浏览行为信息用于广告展示和统计。</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2. 我们如何使用信息</h2>
+                <p>我们收集您的信息用于以下目的：</p>
+                <ul>
+                    <li>向您提供核心功能，如菜谱浏览、视频播放、收藏、个性化推荐；</li>
+                    <li>提供会员权益管理和付费服务支持；</li>
+                    <li>提供账户管理功能，包括第三方账号绑定与登录；</li>
+                    <li>优化产品体验，提升服务质量；</li>
+                    <li>防止欺诈、保障产品与服务安全；</li>
+                    <li>遵守法律法规或监管要求。</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>3. 信息共享与披露</h2>
+                <div class="highlight">
+                    <p><strong>🔒 我们的承诺：</strong>我们不会将您的个人信息出售给任何第三方。</p>
+                </div>
+                <p>但在以下情形下可能会共享您的信息：</p>
+                <ul>
+                    <li>经您事先同意或授权；</li>
+                    <li>根据法律法规规定、行政司法机关依法提出的要求；</li>
+                    <li>为实现广告投放、支付结算、数据分析等功能，需与经过审核并承担保密义务的合作伙伴共享必要信息；</li>
+                    <li>在发生合并、收购、资产转让等交易时，如涉及个人信息转让，我们会要求接收方继续受本隐私政策约束，否则我们将要求其重新征得您的授权同意。</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4. 信息存储与保护</h2>
+                <ul>
+                    <li>我们会在中华人民共和国境内存储您的个人信息，依法采取合理的技术与管理措施保障数据安全，防止信息泄露、损毁、滥用、未经授权访问。</li>
+                    <li>我们会在您账户存续期间及法律法规要求的期限内保存您的个人信息，若您注销账户或删除信息，我们将及时删除或匿名化处理相关信息。</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>5. 您的权利</h2>
+                <p>您有权行使以下权利：</p>
+                <ul>
+                    <li>查询、访问、更正您的个人信息；</li>
+                    <li>删除部分信息（法律法规另有规定的除外）；</li>
+                    <li>撤回已授权的权限或同意；</li>
+                    <li>注销您的账户。</li>
+                </ul>
+                <div class="highlight">
+                    <p><strong>💡 如何行使权利：</strong>您可通过【App 内客服】或发送邮件至【填写客服邮箱】联系我们。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>6. 未成年人的隐私保护</h2>
+                <p>本应用面向一般公众，不特别针对14周岁以下未成年人。若您为未成年人，请在监护人同意下使用本应用。如发现未成年人未经监护人同意提供个人信息，我们将依法删除相关信息。</p>
+            </div>
+
+            <div class="section">
+                <h2>7. 第三方服务</h2>
+                <p>本应用接入了以下第三方服务：</p>
+                <ul>
+                    <li><strong>第三方登录：</strong>Google、X</li>
+                    <li><strong>第三方支付：</strong>Google Play、Apple Pay、PayPal</li>
+                    <li><strong>第三方广告服务：</strong>如 AdMob</li>
+                </ul>
+                <div class="highlight">
+                    <p><strong>📋 重要说明：</strong>第三方服务的使用将适用其自身隐私政策，建议您查阅了解相关政策内容。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>8. 隐私政策的更新</h2>
+                <p>我们可能根据业务变化、法律法规要求对本隐私政策进行更新，更新后的政策将通过应用内通知或弹窗方式告知您。若您继续使用本应用，即表示您同意受更新后政策的约束。</p>
+            </div>
+
+            <div class="contact-info">
+                <h3>📞 联系我们</h3>
+                <p>如您对本隐私政策有任何疑问、意见或建议，您可以通过App内<strong>《联系我们》</strong>与我们联系，我们将尽快回复您的咨询并妥善处理您的问题。</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 中华菜谱 App. 本隐私政策受中华人民共和国法律保护。</p>
+        </div>
+    </div>
+</body>
+</html>
