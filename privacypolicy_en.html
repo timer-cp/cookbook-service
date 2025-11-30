@@ -10,7 +10,8 @@
     html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; background:var(--bg); color:#111}
     .wrap{max-width:var(--maxw);margin:36px auto;padding:28px;background:var(--card);box-shadow:0 6px 20px rgba(20,20,30,0.06);border-radius:10px}
     h1{color:var(--accent);margin-top:0}
-    h2{margin:20px 0 8px}
+    h2{position:relative;margin:20px 0 8px;padding-left:12px;font-size:1.2em;font-weight:600}
+    h2:before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:3px;background-color:#ffae2828;border-radius:2px}
     p{line-height:1.65;color:#222;margin:8px 0}
     ul{margin:8px 0 16px 20px}
     code{background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:0.95em}
@@ -18,7 +19,6 @@
     .meta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
     a{color:var(--accent);text-decoration:none}
     footer{margin-top:28px;font-size:0.9em;color:var(--muted)}
-    .anchor{float:right;font-size:0.85em;color:var(--muted)}
     @media (max-width:600px){.wrap{margin:18px;padding:18px}}
   </style>
 </head>
@@ -32,13 +32,13 @@
 
     <p>Welcome to <strong>Cookbook</strong> (the "App" or "we"). We value your privacy and the security of your personal information. Please read this Privacy Policy carefully before using the App to understand how we collect, use, store, and protect your information. By using the App, you agree to the terms of this policy.</p>
 
-    <h2 id="who">I. Who We Are & Contact Information <a class="anchor" href="#who">#</a></h2>
+    <h2>I. Who We Are & Contact Information</h2>
     <p>This App is developed and operated by <strong>Timer CP</strong> (Please replace with your developer/company name). If you have questions about this Privacy Policy or our processing of your personal information, please contact us:</p>
     <ul>
       <li>Email: <a href="mailto:your-email@example.com">your-email@example.com</a> (Please replace with a real email)</li>
     </ul>
 
-    <h2 id="collect">II. Information We Collect <a class="anchor" href="#collect">#</a></h2>
+    <h2>II. Information We Collect</h2>
     <p>To provide you with the App's features and services and to improve the product experience, we may collect the following information (only where necessary and with your consent):</p>
     <h3>1. Information You Voluntarily Provide</h3>
     <ul>
@@ -62,7 +62,7 @@
       <li>Notifications: Used for sending important messages or service notifications</li>
     </ul>
 
-    <h2 id="use">III. How We Use Information <a class="anchor" href="#use">#</a></h2>
+    <h2>III. How We Use Information</h2>
     <p>We use the collected information for the following purposes:</p>
     <ul>
       <li>To provide and maintain the App's core functionality (saving recipes, displaying content, data synchronization, etc.)</li>
@@ -72,7 +72,7 @@
       <li>For personalized recommendations or marketing, with your explicit consent</li>
     </ul>
 
-    <h2 id="share">IV. Information Sharing and Third-Party Services <a class="anchor" href="#share">#</a></h2>
+    <h2>IV. Information Sharing and Third-Party Services</h2>
     <p>We do not sell your personal information. To provide our services, we may share or entrust necessary data processing to the following types of third parties:</p>
     <ul>
       <li>Cloud Storage/File Hosting (e.g., Firebase, Backblaze B2, etc.)</li>
@@ -81,14 +81,14 @@
     </ul>
     <p>We enter into data processing agreements with these service providers, requiring them to adhere to confidentiality and security obligations, and limiting their use of data solely for providing necessary technical services to us.</p>
 
-    <h2 id="storage">V. Data Security and Protection Measures <a class="anchor" href="#storage">#</a></h2>
+    <h2>V. Data Security and Protection Measures</h2>
     <p>We implement reasonable technical and administrative measures to protect your information, including but not limited to HTTPS encrypted transmission, server access control, the principle of least privilege, and data encryption where necessary.</p>
     <p>In the event of a data security incident, we will notify affected users as quickly as possible and take remedial measures in accordance with the law.</p>
 
-    <h2 id="retention">VI. Data Retention Period <a class="anchor" href="#retention">#</a></h2>
+    <h2>VI. Data Retention Period</h2>
     <p>We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy. If you delete your account or request deletion of your personal information, we will delete or anonymize the relevant data within a reasonable period (unless otherwise required by law).</p>
 
-    <h2 id="rights">VII. Your Rights <a class="anchor" href="#rights">#</a></h2>
+    <h2>VII. Your Rights</h2>
     <p>You may exercise the following rights regarding the personal information we process:</p>
     <ul>
       <li>Access and obtain a copy of your personal information</li>
@@ -98,16 +98,16 @@
     </ul>
     <p>To exercise these rights, please contact us via the email provided at the top of this policy. We will process your request within a reasonable timeframe.</p>
 
-    <h2 id="children">VIII. Children's Privacy <a class="anchor" href="#children">#</a></h2>
+    <h2>VIII. Children's Privacy</h2>
     <p>If you are under the age of <strong>18</strong>, please use this App only with the consent of a guardian. We do not knowingly collect sensitive personal information from minors.</p>
 
-    <h2 id="links">IX. Third-Party Links <a class="anchor" href="#links">#</a></h2>
+    <h2>IX. Third-Party Links</h2>
     <p>The App may contain links to third-party websites or services. The privacy policies and practices of third parties are not governed by this policy, so please read their privacy terms before use.</p>
 
-    <h2 id="updates">X. Updates to the Privacy Policy <a class="anchor" href="#updates">#</a></h2>
+    <h2>X. Updates to the Privacy Policy</h2>
     <p>We may update this Privacy Policy from time to time. We will notify you of significant changes within the App or through other appropriate means. The updated policy becomes effective upon publication.</p>
 
-    <h2 id="contact">XI. Contact Us <a class="anchor" href="#contact">#</a></h2>
+    <h2>XI. Contact Us</h2>
     <p>If you have any questions, comments, or requests to exercise your rights regarding this Privacy Policy, please contact us at:</p>
     <ul>
       <li>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></li>
